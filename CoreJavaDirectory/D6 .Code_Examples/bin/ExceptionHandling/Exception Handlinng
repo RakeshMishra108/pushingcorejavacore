@@ -1,0 +1,99 @@
+Exception Handling :
+	#types of errors -> compile time, runtime
+	
+Intro ->#object oriented way of handling errors which occur during program execution
+		#Problem solving code is decoupled from error handling code and hence the program is less complex
+		#Exception are created when an abnormal situation occurs in java program.Exception objects encapsulate the error information
+
+E.g.-->		
+		try{}
+			catch(...){}
+
+How exceptions are raised? ->
+		#JRE already maps the abnormal situation with the appropriate exception specific class
+		#By any chance,if this situation arises,JRE refers to the appropriate exception specific class and creates an object of that class
+		#Then it checks if there is any exception handler for that exception available or not and if available invokes that others displays the default message.
+Abnormal Situations--->Exception Class :
+#Index out of bound--->ArrayIndexOutOfBoundsException
+#Divide by Zero--->ArithmeticEXception
+
+
+->Compile time error --> Error
+->Runtime error --> Exception : Error,Exception
+
+->Exception hierarchy :
+	#Top most class in exception is throwable
+	#Exception -->RuntimeException,InterruptedEXception,IOException
+	
+->Error : 
+	#indicates a runtime error which is not the control of a developer
+	#describes resource exhaution in JVM.
+	#Predefined class ->StackOverflowError,OutOfMemoryError
+	#Rare and fatal usually.
+	
+->Exception :
+	#indicates 
+	#types ->unchecked,checked
+	#Unchecked ->occur due to programming mistakes.->Compiler does not check these exceptions,at runtime it throws exceptions.->Includes problems such as :Bad cast,Out of bounds
+	#Examples of unchecked : NullPointerException,ArrayIndexOutOfBoundsException,ArithmeticException
+	#checked ->Compiler checks this exceptions before runtime and handle them,also called checked exceptions.->Exceptions which do not fall under runtimeexceptions.->Include 
+	#EXamples of checked : FileNotFoundException,ClassNotFoundException
+
+->Variables declared within the 'try' block become local to the 'try' block and hence cannot be accessed outside the 'try' block.Therfore variables are declared outside the 'try' block
+
+->Handling Exceptions : If an exception is raised ,it needs to be handled using exception handler.this handler is called 'catch' block
+						E.g. catch(<Exception Type> <ref-name>){
+									statements;     }
+
+->Method Invocation VS EXception Fired : In method invocation, after the method completes,control is returned back to the calling environment whereas in Exception if gets fired,control goes to the 'catch' block but does get returned back
+
+->Handling Multiple Exceptions :
+	#If the exception types represent parent-child relationship,then the catch block of sub type must appear before super type 'catch' block
+	#E.g. try{
+			statements }
+		  catch(<exception type> <ref-name>){
+		  	statements }
+		  catch(<exception type> <ref-name>){
+		  	statements }  
+	#Handling  multiple exception in single 'catch' block.Since a single catch block is handling multiple exceptions,it is necessary to identify the type of the exception so the diff types of action 
+	#keyword 'instanceof'
+	#E.g. try{
+			statements }
+		  catch(<exception type1> | <exception type2> <ref-name>){
+		  	if(<ref-name) instanceof <exception type1>)
+		  		{ statements}
+		  	else
+		  		statements
+		  	 }
+->Never leave catch block empty
+
+->Exception handling Limitations :
+	#'finally' block -->statements in 'finally' block always execute
+	#E.g. finally{ statements }
+	#finally block especially creates an impact for the methods of which the return type is other than void
+	
+->try-catch-finally rules : 
+	#'try' block must be with either 'catch','finally' or both.
+	#Blocks must appear one after another without any statements in between.'catch' cannot appear without 'try'.'finally' cannot appear without 'try'.
+	#Nested 'try' block is possible.
+
+->Using 'throws' : 
+	#if several methods of a class are probable to fire an exception, it becomes difficult to manage writing try-catch constructs in each method
+	#this can be simplified by using 'throws'
+	#For checked exceptions only
+	
+->Using 'throw'
+	#used to give exception forcefully.
+	#normally exceptions are thrown by JRE.
+	#Syntax :  throw <Throwable> 
+	#E.g. if(condition){ Exception ex =new Exception();
+						throw ex; }
+	#printStackTrace() used for throwing exception when project is in development phase for developers
+
+
+->User defined exception using 'throw' :
+	#domain specific exception given by 'throw' explicitly are called user defined exception
+	#user defined exceptions are generally customized by creating a class that inherits either exception or runtimeEXception
+	#E.g. public class LOWBalanceException extends Exception{}
+	#Unchecked exceptions in RuntimeException, checked exceptions in Exception
+	#

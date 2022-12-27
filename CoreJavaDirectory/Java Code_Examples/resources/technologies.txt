@@ -1,0 +1,3 @@
+Java: An object oriented language
+Java Script: A scripting language
+Angular: A front end framework

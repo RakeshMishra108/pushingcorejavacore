@@ -1,0 +1,20 @@
+Intro -> 
+	#involves multiple tasks running simultaneously
+	#Generic terminology has 2 forms => Multiprocessing and Multithreading
+	MultiProcessing -- 
+	#'program' set of instructions and process is a 'Running Instance of a Program'.CPU is shared between 2 processes.
+	#OS implements Context Switching mechanism
+	#Program's entire context including variables,global variables,objects etc., is stored separately.
+	Multithreading --
+	#Different tasks within a main task execute simultaneously
+	#implements the idea of Multitasking by taking it one level lower.
+	#A thread is an entity within a process
+	#it defines the path of execution
+
+Implementing Multithreading--
+	#to implement multithreading Java provides an API from java.lang package;
+	#A 'Thread' class and a 'Runnable' interface
+	#It is necessary to create a Java class which is referred as a thread implementation class.
+	#it must either 'extends Thread' or 'implements Runnable'
+	#all thread implementation classes define a 'run()' methiod which provides logic for the thread or acts as a gateway to the logic.
+	#Multithreaded programs are platform dependent

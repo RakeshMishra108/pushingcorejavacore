@@ -1,0 +1,47 @@
+Inner Class -->
+	
+	->declaring class in another class is known as inner class.
+	
+	->e.g. public class{
+				public class {}}
+	
+	->Why inner class : 1.useful when complex logic is to be isolated but handled locally wothin the enclosing class.
+						2.enables enclosing classes to handle the operations wihtout the overhead of method invocations,sending parameters and so on.
+						3.used in GUI programming model handling events
+						4.used in UI component creation
+	
+	->Types : 
+	1.Static inner class :
+								#declared with 'static' modifier
+								#can be initiated without outer class but can only access static members of the class
+								#e.g. public class outerclass{
+												static class innerclass{}}
+			
+	2.Nested class : 
+						#declared without 'static' modifier
+						#has to be initiated by creating object of outerclass ,can access static as well as nonstatic members
+						#e.g. public class outerclass {
+											public class innerclass {}}
+	3.Local class :
+		 			#innerclass declared inside a method of a class is called local class
+		 			#for every method invocation class is loaded and initiated
+		 			Note : class inside class,method inside class,class inside method but not method inside method (definition)
+		 			#e.g. public class outer{
+		 							public void mymethod(){
+		 										public class inner{}}}
+	4.Anonymous inner class : 
+					#declared without any name
+					#defined,loaded and initiated when a method or constructor is invoked
+					#used in context of abstract classes or interfaces
+					
+					
+					
+					
+	->.class file : 
+			#in case of inner classes, .class file names are generated in the following format :
+				<<outerClass>>$<<InnerClass>>.class
+				
+				Outer.class
+				Outer$StaticInner.class
+				Outer$Nested.class
+				Outer$1Message.class

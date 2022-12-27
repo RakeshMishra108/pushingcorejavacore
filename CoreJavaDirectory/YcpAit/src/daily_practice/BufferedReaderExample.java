@@ -1,0 +1,10 @@
+package daily_practice;
+
+public class BufferedReaderExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
